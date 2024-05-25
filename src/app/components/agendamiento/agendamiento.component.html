@@ -1,26 +1,103 @@
-<h1>Agenda tu cita</h1>
+<div class="d-flex justify-content-center">
+    <h1>Agenda tu cita</h1>
+</div>
+
 <h5>Dispensario Medico</h5>
 
-<div>
+<div id="divform">
 <form action="">
-<label for="slubi"> Seleccionar Ubicacion</label>
+<label for="slubi">Seleccionar Ubicacion:</label>
 
 <select name="slubi" id="">
+    <option value="">Escoja una opciona...</option>
+    <option value="">Sector Norte</option>
+    <option value="">Sector Sur</option>
 
 </select>
 <label for="slespe">Especialidad:</label>
-<select name="slespe" id=""></select>
-<label for="">Servicio Especifico</label>
-<select name="" id=""></select>
+<select name="slespe" id="">
+    <option value="">Escoja una opcion...</option>
+<option value="">Medicina General</option>
+<option value="">Odontologia</option>
+<option value="">Pediatria</option>
+
+</select>
+<label for="">Servicio Especifico:</label>
+<select name="" id="">
+    <option value="">Escoja una opcion...</option>
+    <option value="">Consulta General</option>
+    <option value="">......</option>
+    <option value="">....</option>
+
+
+</select>
 </form>
 </div>
 
 <div>
-tabla
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col" hidden>IDDoctor</th>
+            <th scope="col">Doctor</th>
+            <th scope="col">Especialidad</th>
+            <th scope="col">Horario</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">Habitacion</th>
+            <th scope="col">Disponibilidad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>...</td>
+         
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>... </td>
+          
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+           
+            <td>... </td>
+          </tr>
+          <tr>
+          <th scope="row">4</th>
+           
+          <td>... </td>
+        </tr>
+        <tr>
+        <th scope="row">5</th>
+           
+        <td>... </td>
+      </tr>
+      <tr>
+      <th scope="row">6</th>
+           
+      <td>... </td>
+    </tr>
+    <tr>
+    <th scope="row">7</th>
+           
+    <td>... </td>
+  </tr>
+  <tr>
+  <th scope="row">8</th>
+           
+  <td>... </td>
+</tr>
+        </tbody>
+      </table>
 
 </div>
 <span>Horario seleccionado:</span>
 
+<div id="divbt"class="d-flex justify-content-lg-end">
+    <button id="btacep"type="button" class="btn btn-success" >Aceptar</button>
+</div>
 <p>
 
 </p>
