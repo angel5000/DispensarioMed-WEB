@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-agendamiento',
   standalone: true,
@@ -8,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './agendamiento.component.css'
 })
 export class AgendamientoComponent {
+  constructor(private router: Router) {}
 
+  navigateToVenta() {
+    this.router.navigate(['/venta']);
+  }
 }
