@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './agendamiento.component.css'
 })
 export class AgendamientoComponent {
+
   constructor(private router: Router) {}
 
   navigateToVenta() {
@@ -22,6 +23,7 @@ Medico: string='';
 Direccion: string='';
 Habitacin: string='';
 Disponible: string='';
+filaSeleccionada: number = -1;
   mostrarDatos() {
     this.Medico="Jose Paredes";
     this.Direccion="Calle 8 avenida 3 Mz3";
@@ -31,6 +33,8 @@ Disponible: string='';
     this.Disponible="Disponible";
  
   }
-
+  seleccionarFila(index: number) {
+    this.filaSeleccionada = index;
+  }
 
 }

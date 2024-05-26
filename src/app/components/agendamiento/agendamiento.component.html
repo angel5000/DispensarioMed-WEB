@@ -39,7 +39,7 @@
 
 </div>
 
-<div  *ngIf="Medico || especialidad || horario" id="tableid"class="border border-success p-2 mx-4" style="--bs-border-opacity: .5;">
+<div  *ngIf="Medico || Direccion || Habitacin || Disponible || horario"id="tableid"class="border border-success p-2 mx-4" style="--bs-border-opacity: .5;">
     <table class="table">
         <thead>
           <tr>
@@ -54,7 +54,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          
+          <tr [class.selected]="filaSeleccionada !== 0" (click)="seleccionarFila(0)">
             <td>1</td>
             <td>{{Medico }}</td>
             <td>{{ especialidad }}</td>
