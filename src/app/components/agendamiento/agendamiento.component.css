@@ -1,15 +1,21 @@
 h5{
     margin-top: 10px;
     margin-bottom: 50px;
+    margin-left: 20px;
 }
 #divform{
 margin-bottom: 40px;
 margin-left: 20px;
+
+}
+#tableid{
+    margin-bottom: 50px;
 }
 label{
     margin-right: 10px;
     margin-left: 10px;
 }
+
 #divbt{
     margin-right: 20px;
  
@@ -17,4 +23,5 @@ label{
 #btacep{
 padding-left: 30px;
 padding-right: 30px;
+margin-bottom: 100px;
 }

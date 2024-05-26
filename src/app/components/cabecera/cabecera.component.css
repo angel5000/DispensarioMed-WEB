@@ -1,0 +1,10 @@
+#navb.navbar{
+    position: fixed; 
+    top: 0;
+    text-align: center;
+    background-color: rgba(59, 224, 87, 0.692) !important;
+    width: 100%;
+    border-color: black !important;
+    border: 10px !important;
+    z-index: 1000;
+ }

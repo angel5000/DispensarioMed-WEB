@@ -1,11 +1,13 @@
-<div class="d-flex justify-content-center">
+<div  class="d-flex justify-content-center mb-3 mt-5">
     <h1>Agenda tu cita</h1>
 </div>
 
 <h5>Dispensario Medico</h5>
 
-<div id="divform">
+<div id="divform"  class="border border-success p-2 mx-4" style="--bs-border-opacity: .5;">
+ 
 <form action="">
+
 <label for="slubi">Seleccionar Ubicacion:</label>
 
 <select name="slubi" id="">
@@ -31,10 +33,12 @@
 
 
 </select>
+
 </form>
+
 </div>
 
-<div>
+<div  id="tableid"class="border border-success p-2 mx-4" style="--bs-border-opacity: .5;">
     <table class="table">
         <thead>
           <tr>
@@ -93,7 +97,7 @@
       </table>
 
 </div>
-<span>Horario seleccionado:</span>
+<span class="spn">Horario seleccionado:</span>
 
 <div id="divbt"class="d-flex justify-content-lg-end">
     <button id="btacep"type="button" class="btn btn-success" (click)="navigateToVenta()">Aceptar</button>
