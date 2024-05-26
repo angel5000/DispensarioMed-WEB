@@ -3,6 +3,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 
 import { CabeceraComponent } from './components/cabecera/cabecera.component';
 import { PieComponent } from './components/pie/pie.component';
+import { Router, NavigationEnd } from '@angular/router';
 @Component({
     selector: 'app-root',
     standalone: true,
@@ -12,4 +13,13 @@ import { PieComponent } from './components/pie/pie.component';
 })
 export class AppComponent {
   title = 'ProyectoDAWA-Grupo11-DispensarioMedico';
+  showHeaderFooter: boolean = true;
+
+  constructor(private router: Router) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.showHeaderFooter = !(event.urlAfterRedirects === '/login');
+      }
+    });
+  }
 }
