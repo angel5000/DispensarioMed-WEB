@@ -6,7 +6,7 @@
 
 <div id="divform"  class="border border-success p-2 mx-4" style="--bs-border-opacity: .5;">
  
-<form action="">
+<form (ngSubmit)="mostrarDatos()">
 
 <label for="slubi">Seleccionar Ubicacion:</label>
 
@@ -34,11 +34,12 @@
 
 </select>
 
+<button type="button" class="btn btn-primary mx-5 px-5" name="btbuscar" (click)="mostrarDatos()"> Buscar</button>
 </form>
 
 </div>
 
-<div  id="tableid"class="border border-success p-2 mx-4" style="--bs-border-opacity: .5;">
+<div  *ngIf="Medico || Direccion || Habitacin || Disponible || horario"id="tableid"class="border border-success p-2 mx-4" style="--bs-border-opacity: .5;">
     <table class="table">
         <thead>
           <tr>
@@ -53,46 +54,17 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>...</td>
-         
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>... </td>
           
+          <tr [class.selected]="filaSeleccionada !== 0" (click)="seleccionarFila(0)">
+            <td>1</td>
+            <td>{{Medico }}</td>
+            <td>{{ especialidad }}</td>
+            <td>{{ horario }}</td>
+            <td>{{ Direccion }}</td>
+            <td>{{Habitacin }}</td>
+            <td>{{ Disponible }}</td>
           </tr>
-          <tr>
-            <th scope="row">3</th>
-           
-            <td>... </td>
-          </tr>
-          <tr>
-          <th scope="row">4</th>
-           
-          <td>... </td>
-        </tr>
-        <tr>
-        <th scope="row">5</th>
-           
-        <td>... </td>
-      </tr>
-      <tr>
-      <th scope="row">6</th>
-           
-      <td>... </td>
-    </tr>
-    <tr>
-    <th scope="row">7</th>
-           
-    <td>... </td>
-  </tr>
-  <tr>
-  <th scope="row">8</th>
-           
-  <td>... </td>
-</tr>
+         
         </tbody>
       </table>
 
