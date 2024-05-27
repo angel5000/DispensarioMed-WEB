@@ -2,3 +2,21 @@ li {
     list-style: none;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+#Content_Box1{
+    background-color: rgb(255, 255, 255);
+    width: 30%;
+    height: 50%;
+    border-color:black;
+    border: 1px;
+    border-style:solid;
+    border-radius: 5%;
+    margin-top: 3%;
+    margin-left: 2%;
+    padding: 1%;
+}
+#Content_Box_if{
+    border-style: solid;
+    border-color: black;
+    border-left: 1px;
+    border-right: 1px;
+}
