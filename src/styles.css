@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+:root {
+    --green-custom: #3be057b0;
+    --black-custom: #333333;
+    --white-custom: #fffefe;
+}
+
+.font-poetsen-one {
+    font-family: "Poetsen One", sans-serif;
+    color: var(--black-custom); 
+}
+
+.font-ubuntu {
+    font-family: "Ubuntu", sans-serif;
+}
+
+.ng-invalid:not(form).ng-touched {
+    border-right: 5px solid #FA4753;
+}

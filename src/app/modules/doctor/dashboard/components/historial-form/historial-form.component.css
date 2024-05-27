@@ -1,0 +1,18 @@
+.mb-3 {
+    height: 5.5rem;
+}
+
+.input-group-text {
+    background-color: var(--green-custom);
+    border-color: var(--black-custom);
+}
+
+textarea {    
+    border-color: var(--black-custom);
+    font-size: small;
+}
+
+.form-text {
+    font-size: x-small;
+    font-weight: 500;
+}

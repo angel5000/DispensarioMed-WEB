@@ -5,11 +5,11 @@ import { CabeceraComponent } from './components/cabecera/cabecera.component';
 import { PieComponent } from './components/pie/pie.component';
 import { Router, NavigationEnd } from '@angular/router';
 @Component({
-    selector: 'app-root',
-    standalone: true,
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.css',
-    imports: [RouterOutlet, PieComponent, CabeceraComponent,RouterLink,CommonModule]
+  selector: 'app-root',
+  standalone: true,
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css',
+  imports: [RouterOutlet, PieComponent, CabeceraComponent, RouterLink, CommonModule]
 })
 export class AppComponent {
   title = 'ProyectoDAWA-Grupo11-DispensarioMedico';
@@ -18,7 +18,9 @@ export class AppComponent {
   constructor(private router: Router) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        this.showHeaderFooter = !(event.urlAfterRedirects === '/login');
+        this.showHeaderFooter = !(
+          event.urlAfterRedirects === '/login' ||
+          event.urlAfterRedirects.startsWith('/dashboard-medicos'))
       }
     });
   }

@@ -1,0 +1,55 @@
+<div class="container-fluid p-4">
+    <span class="font-poetsen-one fs-4">Ingresar Historial</span>
+    <hr class="my-4">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+            <label class="font-ubuntu medium fw-bolder">Sintomas</label>
+            <div class="input-group">
+                <span class="input-group-text">
+                    <mat-icon>sick</mat-icon>
+                </span>
+                <textarea class="form-control" rows="2" formControlName="sintomas"></textarea>
+            </div>
+            @if (sintomas.invalid && (sintomas.dirty || sintomas.touched)) {
+            <div class="form-text text-danger">Campo obligatorio</div>
+            }
+        </div>
+        <div class="mb-3">
+            <label class="font-ubuntu medium fw-bolder">Diagnostico</label>
+            <div class="input-group">
+                <span class="input-group-text">
+                    <mat-icon>coronavirus</mat-icon>
+                </span>
+                <textarea class="form-control" rows="2" formControlName="diagnostico"></textarea>
+            </div>
+            @if (diagnostico.invalid && (diagnostico.dirty || diagnostico.touched)) {
+            <div class="form-text text-danger">Campo obligatorio</div>
+            }
+        </div>
+        <div class="mb-3">
+            <label class="font-ubuntu medium fw-bolder">Receta</label>
+            <div class="input-group">
+                <span class="input-group-text">
+                    <mat-icon>receipt_long</mat-icon>
+                </span>
+                <textarea class="form-control" rows="2" formControlName="receta"></textarea>
+            </div>
+            @if (receta.invalid && (receta.dirty || receta.touched)) {
+            <div class="form-text text-danger">Campo obligatorio</div>
+            }
+        </div>
+        <div class="mb-3">
+            <label class="font-ubuntu medium fw-bolder">Tratamiento</label>
+            <div class="input-group">
+                <span class="input-group-text">
+                    <mat-icon>healing</mat-icon>
+                </span>
+                <textarea class="form-control" rows="2" formControlName="tratamiento"></textarea>
+            </div>
+            @if (tratamiento.invalid && (tratamiento.dirty || tratamiento.touched)) {
+            <div class="form-text text-danger">Campo obligatorio</div>
+            }
+        </div>
+        <button type="submit" class="btn btn-outline-dark mt-2 w-100">Ingresar historial</button>
+    </form>
+</div>

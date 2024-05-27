@@ -1,0 +1,26 @@
+.container-loading {
+    height: 2rem;
+}
+
+.btn {
+    height: 2rem;
+}
+
+.btn mat-icon {
+    font-size: 1.3rem;
+}
+
+table {
+    width: 100%;
+}
+
+td,
+th {
+    font-size: .8rem;
+}
+
+.mat-mdc-row .mat-mdc-cell {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+}
