@@ -7,24 +7,89 @@
         <div id="Content_Box_if">
             <h3>Resumen de cita medica</h3>
             <ul>
-                <li><label for="ID_CITA">ID CITA:</label>input </li>
-                <li><label for="ID_DOCTOR">ID DOCTOR:</label></li>
-                <li><label for="NOMBRE_DOCTOR">NOMBRE DE DOCTOR:</label></li>
-                <li><label for="LUGAR_DISPESARIO">LUGAR DE DISPENSARIO:</label></li>
-                <li><label for="HORARIO">HORARIO:</label></li>
-                <li><label for="ESPECIALIDAD">ESPECIALIDAD:</label></li>
-                <li><label for="HABITACION">HABITACION:</label></li>
+                <li>
+                    <label for="ID_CITA">ID CITA:</label>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled>
+                        <label for="floatingInputDisabled">09542</label>
+                    </div>
+                </li>
+                <li>
+                    <label for="ID_DOCTOR">ID DOCTOR:</label>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled>
+                        <label for="floatingInputDisabled">04540</label>
+                    </div>
+                </li>
+                <li>
+                    <label for="NOMBRE_DOCTOR">NOMBRE DE DOCTOR:</label>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled>
+                        <label for="floatingInputDisabled">Jose Paredes</label>
+                    </div>
+                    
+                </li>
+                <li>
+                    <label for="LUGAR_DISPESARIO">LUGAR DE DISPENSARIO:</label>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled>
+                        <label for="floatingInputDisabled">Sector Norte Calle 8 avenida 3 Mz3</label>
+                    </div>
+
+                </li>
+                <li>
+                    <label for="HORARIO">HORARIO:</label>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled>
+                        <label for="floatingInputDisabled">10:00 AM</label>
+                    </div>
+                </li>
+                <li>
+                    <label for="ESPECIALIDAD">ESPECIALIDAD:</label>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled>
+                        <label for="floatingInputDisabled">Medicina General</label>
+                    </div>
+                </li>
+                <li>
+                    <label for="HABITACION">HABITACION:</label>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled>
+                        <label for="floatingInputDisabled">L1</label>
+                    </div>
+                </li>
             </ul>
         </div>
         <div id="Content_Box_pago">
             <h3>Metodo de Pago</h3>
             <ul>
-                <li><input type="radio" name="metodo_pago" id="radio1"><label for="radio1">Tarjeta de Credito</label></li>
-                <li><input type="radio" name="metodo_pago" id="radio2"><label for="radio2">Tarjeta de Debito</label></li>
-                <li><input type="radio" name="metodo_pago" id="radio3"><label for="radio3">Paypal</label></li>
-                <li><input type="radio" name="metodo_pago" id="radio4"><label for="radio4">Transferencia Bancaria</label></li>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Tarjeta de Debito
+                    </label>
+                    </div>
+                    <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Tarjeta de Credito
+                    </label>
+                    </div>
+                    <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Paypal
+                    </label>
+                    </div>
+                    <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Transferencia Bancaria
+                    </label>
+                    </div>
             </ul>
-            <button type="button">Generar comprobante</button>
+            <button type="button" class="btn btn-primary">Generar comprobante   </button>
+
         </div>
     </div>
 </div>
