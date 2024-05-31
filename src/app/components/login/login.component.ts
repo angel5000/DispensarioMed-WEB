@@ -49,20 +49,20 @@ export class LoginComponent {
       const clave = claveControl.value;
 
       if (email === 'Fausto@gmail.com' && clave === 'fausto123') {
-        // Credenciales válidas: redirige al componente PaginaPrincipal
+   
         this.nombreUsuario = email;
         this.mostrarBotonSalir = true;
         this.mostrarError = false;
-        // Guarda los valores en localStorage
+        
         localStorage.setItem('nombreUsuario', this.nombreUsuario);
         localStorage.setItem('mostrarBotonSalir', 'true');
 
         this.router.navigate(['/principal']).then(() => {
-          // Redirección completada, ahora recargamos la página
+          
           window.location.reload();
         });
       } else {
-        // Credenciales incorrectas: muestra el mensaje de error
+      
         this.mostrarError = true;
         this.mostrarBotonSalir = false;
       }

@@ -6,13 +6,13 @@
   
       <form [formGroup]="usuarioLogin" (ngSubmit)="iniciarSesion()">
         <div class="CajasTexto">
-          <!-- TextBox de usuario -->
+        
           <mat-form-field appearance="outline">
             <mat-label>Digite su Correo</mat-label>
             <input matInput formControlName="email" placeholder="Correo">
             <mat-icon matSuffix>alternate_email</mat-icon>
           </mat-form-field>
-          <!-- TextBox de contraseña -->
+       
           <mat-form-field appearance="outline">
             <mat-label>Digite su contraseña</mat-label>
             <input matInput formControlName="clave" [type]="hide ? 'password' : 'text'" placeholder="Contraseña">
