@@ -1,1 +1,38 @@
-<p>login works!</p>
+<div class="Contenedor">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Inicio de Sesión</mat-card-title><br>
+      </mat-card-header>
+  
+      <form [formGroup]="usuarioLogin" (ngSubmit)="iniciarSesion()">
+        <div class="CajasTexto">
+          <!-- TextBox de usuario -->
+          <mat-form-field appearance="outline">
+            <mat-label>Digite su Correo</mat-label>
+            <input matInput formControlName="email" placeholder="Correo">
+            <mat-icon matSuffix>alternate_email</mat-icon>
+          </mat-form-field>
+          <!-- TextBox de contraseña -->
+          <mat-form-field appearance="outline">
+            <mat-label>Digite su contraseña</mat-label>
+            <input matInput formControlName="clave" [type]="hide ? 'password' : 'text'" placeholder="Contraseña">
+            <button mat-icon-button matSuffix type="button" (click)="togglePasswordVisibility()">
+              <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+          </mat-form-field>
+          
+          
+        </div>
+  
+        <mat-card-actions align="end">
+          <button mat-button class="btnAceptar" type="submit">Aceptar</button>
+          <button mat-button class="cancelar" (click)="limpiarCampos()">Cancelar</button>
+        </mat-card-actions>
+      </form>
+  
+      <mat-card *ngIf="mostrarError" class="error">
+        <mat-card-title>Credenciales incorrectas</mat-card-title>
+      </mat-card>
+    </mat-card>
+  </div>
+  
