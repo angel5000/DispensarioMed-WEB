@@ -48,7 +48,7 @@ export class LoginComponent {
       const email = emailControl.value;
       const clave = claveControl.value;
 
-      if (email === 'Fausto' && clave === 'fausto123') {
+      if (email === 'Fausto@gmail.com' && clave === 'fausto123') {
         // Credenciales válidas: redirige al componente PaginaPrincipal
         this.nombreUsuario = email;
         this.mostrarBotonSalir = true;
