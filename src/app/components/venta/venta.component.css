@@ -2,6 +2,21 @@ li {
     list-style: none;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+#dvbt{
+ 
+    top: 0;
+    text-align: start;
+   
+    background-color: rgba(59, 224, 87, 0.692) !important;
+    width: 100%;
+    padding-bottom: 1%;
+}
+#btregre{
+    margin-left: 20px;
+    margin-top: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
 #Content_Box1{
     background-color: rgb(255, 255, 255);
     width: 50%;

@@ -13,15 +13,44 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class AppComponent {
   title = 'ProyectoDAWA-Grupo11-DispensarioMedico';
-  showHeaderFooter: boolean = true;
+  showHeader: boolean = true;
+  showFooter: boolean = true;
 
   constructor(private router: Router) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        this.showHeaderFooter = !(
+       
+        this.showHeader=(
+          event.urlAfterRedirects === '/agendamiento' ||
+          event.urlAfterRedirects==='/principal' )
+
+          this.showFooter= (
+            event.urlAfterRedirects === '/venta' ||
+            event.urlAfterRedirects === '/principal' ||
+            event.urlAfterRedirects === '/agendamiento'
+            )
+this.showHeader=!(
+  event.urlAfterRedirects === '/venta' ||
+  event.urlAfterRedirects === '/login' ||
+            event.urlAfterRedirects.startsWith('/dashboard-medicos')
+)
+
+/*this.showFooter= (
+            event.urlAfterRedirects === '/login' ||
+            event.urlAfterRedirects.startsWith('/dashboard-medicos') )
+
+        this.showHeader = (
           event.urlAfterRedirects === '/login' ||
-          event.urlAfterRedirects.startsWith('/dashboard-medicos'))
+          event.urlAfterRedirects.startsWith('/dashboard-medicos')
+          
+          
+          ) */
+          
+          
+
+          
       }
+      
     });
   }
 }

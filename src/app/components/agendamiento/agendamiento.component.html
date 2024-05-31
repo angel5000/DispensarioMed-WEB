@@ -2,39 +2,39 @@
     <h1>Agenda tu cita</h1>
 </div>
 
-<h5>Dispensario Medico</h5>
+<h3>Dispensario Medico</h3>
 
 <div id="divform"  class="border border-success p-2 mx-4" style="--bs-border-opacity: .5;">
  
-<form (ngSubmit)="mostrarDatos()">
+<form  [formGroup]="formselect" (ngSubmit)="mostrarDatos()">
 
 <label for="slubi">Seleccionar Ubicacion:</label>
 
-<select name="slubi" id="">
+<select formControlName="slubi" id="slubi" >
     <option value="">Escoja una opciona...</option>
-    <option value="">Sector Norte</option>
-    <option value="">Sector Sur</option>
+    <option value="1">Sector Norte</option>
+    <option value="2">Sector Sur</option>
 
 </select>
 <label for="slespe">Especialidad:</label>
-<select name="slespe" id="">
+<select formControlName="slespe" id="slespe">
     <option value="">Escoja una opcion...</option>
-<option value="">Medicina General</option>
-<option value="">Odontologia</option>
-<option value="">Pediatria</option>
+<option value="1">Medicina General</option>
+<option value="2">Odontologia</option>
+<option value="3">Pediatria</option>
 
 </select>
-<label for="">Servicio Especifico:</label>
-<select name="" id="">
+<label for="slservi">Servicio Especifico:</label>
+<select formControlName="slservi" id="slservi">
     <option value="">Escoja una opcion...</option>
-    <option value="">Consulta General</option>
-    <option value="">......</option>
-    <option value="">....</option>
+    <option value="1">Consulta General</option>
+    <option value="2">......</option>
+    <option value="3">....</option>
 
 
 </select>
 
-<button type="button" class="btn btn-primary mx-5 px-5" name="btbuscar" (click)="mostrarDatos()"> Buscar</button>
+<button type="button" [disabled]="!formselect.valid"class="btn btn-primary mx-5 px-5" name="btbuscar" (click)="mostrarDatos()"> Buscar</button>
 </form>
 
 </div>
@@ -42,7 +42,7 @@
 <div  *ngIf="Medico || Direccion || Habitacin || Disponible || horario"id="tableid"class="border border-success p-2 mx-4" style="--bs-border-opacity: .5;">
     <table class="table">
         <thead>
-          <tr>
+          <tr >
             <th scope="col">#</th>
             <th scope="col" hidden>IDDoctor</th>
             <th scope="col">Doctor</th>
@@ -55,7 +55,7 @@
         </thead>
         <tbody>
           
-          <tr [class.selected]="filaSeleccionada !== 0" (click)="seleccionarFila(0)">
+          <tr [class.selected]="filaSeleccionada === 0" (click)="seleccionarFila(0, { Medico, especialidad, horario, Direccion, Habitacin, Disponible })">
             <td>1</td>
             <td>{{Medico }}</td>
             <td>{{ especialidad }}</td>
@@ -69,10 +69,10 @@
       </table>
 
 </div>
-<span class="spn">Horario seleccionado:</span>
+<span class="spn">Horario seleccionado: {{ datosSeleccionados.horario }}</span>
 
 <div id="divbt"class="d-flex justify-content-lg-end">
-    <button id="btacep"type="button" class="btn btn-success" (click)="navigateToVenta()">Aceptar</button>
+    <button id="btacep"type="button"[disabled]="filaSeleccionada != 0" class="btn btn-success" (click)="navigateToVenta()">Aceptar</button>
 </div>
 <p>
 

@@ -1,8 +1,8 @@
-div{
-  
-    bottom: 0;
+#dv{
+   position: relative; 
+
     width: 100%;
-    height: 40px;
+   bottom: 0;
    
  }
  footer{
