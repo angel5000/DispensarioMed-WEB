@@ -11,13 +11,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrl: './agendamiento.component.css'
 })
 export class AgendamientoComponent implements OnInit {
-  formselect: FormGroup;
+  formselect!: FormGroup;
   constructor(private router: Router ,private fb: FormBuilder) {
-    this.formselect = this.fb.group({
-      slubi: ['', Validators.required],
-      slespe: ['', Validators.required],
-      slservi: ['', Validators.required]
-    });
+    
   }
   ngOnInit(): void {
     this.formselect = this.fb.group({
