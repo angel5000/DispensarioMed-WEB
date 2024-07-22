@@ -1,6 +1,7 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit, Inject,PLATFORM_ID} from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 @Component({
   selector: 'app-cabecera',
   standalone: true,
@@ -9,8 +10,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './cabecera.component.css'
 })
 export class CabeceraComponent implements OnInit {
-
-  constructor(private router: Router) {}
+  
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private router: Router) {}
   navigateToLogin() {
     this.router.navigate(['/login']);
   }
@@ -19,7 +20,9 @@ export class CabeceraComponent implements OnInit {
   
 
   ngOnInit(): void {
-    this.nombreUsuario = localStorage.getItem('nombreUsuario');
+    if (isPlatformBrowser(this.platformId)) {
+      this.nombreUsuario = localStorage.getItem('nombreUsuario');
+    }
   }
 
   isLoggedIn(): boolean {
