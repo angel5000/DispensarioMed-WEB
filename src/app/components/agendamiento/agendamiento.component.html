@@ -10,11 +10,16 @@
 
 <label for="slubi">Seleccionar Ubicacion:</label>
 
-<select formControlName="slubi" id="slubi" >
+<select formControlName="slubi" id="slubi" (change)="onUbicacionChange($event)">
     <option value="">Escoja una opciona...</option>
-    <option value="1">Sector Norte</option>
-    <option value="2">Sector Sur</option>
-
+    @for (elem of ubicaciones; track elem) {
+   
+      <option  >
+          {{elem}}
+      </option>
+      }
+  
+  
 </select>
 <label for="slespe">Especialidad:</label>
 <select formControlName="slespe" id="slespe">
