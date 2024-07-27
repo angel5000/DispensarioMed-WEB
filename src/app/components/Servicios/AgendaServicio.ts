@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient ,HttpParams } from '@angular/common/http';
 import {  BehaviorSubject,Observable } from 'rxjs';
 import { Ubicaciones } from '../Model/Ubicaciones';
 
 import { tap } from 'rxjs/operators';
+import { Especialidad } from '../Model/Especialidades';
+import { AgendaDatos } from '../Model/AgendaDatos';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +13,8 @@ import { tap } from 'rxjs/operators';
 export class AgendaServicio {
 
   private apiUrl = 'https://localhost:7116/api/Ubicaciones'; 
+  private apiUrlespe = 'https://localhost:7116/api/Especialidades'; 
+  private apiUrlAgenda =   'https://localhost:7116/api/AgendasMed';
 
   constructor(private http: HttpClient) { }
   /*private autoresSubject = new BehaviorSubject<any[]>([]);
@@ -25,8 +29,16 @@ export class AgendaServicio {
   getAllSectores(): Observable<Ubicaciones> {
     return this.http.get<Ubicaciones>(this.apiUrl);
   }
+  getAllEspecialidad(): Observable<Especialidad[]> {
+    return this.http.get<Especialidad[]>(this.apiUrlespe);
+  }
+  getAllHorarios(sector: string, especialidad: string): Observable<AgendaDatos[]> {
+    const params = new HttpParams()
+      .set('sector', sector)
+      .set('especialidad', especialidad);
 
-
+    return this.http.get<any[]>(this.apiUrlAgenda, { params });
+  }
  /*
 
   getAllSectores(): Observable<Ubicaciones[]> {

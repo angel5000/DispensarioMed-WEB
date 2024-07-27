@@ -8,7 +8,9 @@ import { AgendaServicio } from '../Servicios/AgendaServicio';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule} from '@angular/common/http';
 import { NgModule } from '@angular/core';
-
+import { Especialidad } from '../Model/Especialidades';
+import { AgendaDatos } from '../Model/AgendaDatos';
+import {MatTableModule} from '@angular/material/table';
 @Component({
   selector: 'app-agendamiento',
   standalone: true,
@@ -19,20 +21,50 @@ import { NgModule } from '@angular/core';
 export class AgendamientoComponent implements OnInit {
   formselect!: FormGroup;
   ubicaciones: string[] = [];
+  especialidades: Especialidad[] = [];
+  horarios: AgendaDatos[] = [];
+  selectedHorario: any;
+  
   constructor(private AgendaServis:AgendaServicio ,private router: Router ,private fb: FormBuilder) {
     
   }
   ngOnInit(): void {
     this.formselect = this.fb.group({
       slubi: ['', Validators.required],
-      slespe: ['', Validators.required],
-      slservi: ['', Validators.required]
+      slespe: ['', Validators.required]
+//slservi: ['', Validators.required]
     });
     this. Mostrar();
+    this.MostrarEspecialidades();
   }
 
   navigateToVenta() {
     this.router.navigate(['/venta']);
+  }
+  getHorarios(): void {
+    const sector = this.formselect.value.slubi;
+    const especialidad = this.formselect.value.slespe;
+    this.AgendaServis.getAllHorarios(sector, especialidad).subscribe({
+      next: (data: any) => {
+        if (data.$values) {
+          this.horarios = data.$values;
+        } else {
+          this.horarios = [];
+        }
+        console.log(this.horarios);
+      },
+      error: (error: any) => {
+        console.error('Error fetching horarios:', error);
+      },
+      complete: () => {
+        console.info('Horarios fetch complete');
+      }
+    });
+  }
+
+  selectHorario(horario: any): void {
+    this.selectedHorario = horario;
+    console.log('Horario seleccionado:', this.selectedHorario);
   }
 
   Mostrar(){
@@ -56,6 +88,31 @@ export class AgendamientoComponent implements OnInit {
       }
     });
   }
+
+  MostrarEspecialidades(){
+
+    this.AgendaServis.getAllEspecialidad().subscribe({
+      next: (data: any) => {
+        // Verifica si los datos están encapsulados dentro de $values
+        if (data.$values) {
+          this.especialidades = data.$values;
+        } else {
+          this.especialidades = data;
+        }
+        console.log(this.especialidades);
+      },
+      error: (response: any) => {
+        console.log(response.error);
+      },
+      complete: () => {
+        console.info('listo');
+      }
+    });
+
+
+
+  }
+
   onUbicacionChange(event: any) {
     const selectedValue = event.target.value ;
     console.log('ID seleccionado:', selectedValue);

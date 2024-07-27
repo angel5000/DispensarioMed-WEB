@@ -33,3 +33,17 @@ margin-bottom: 100px;
    
     
   }
+  .selected-row {
+    background-color: #bde21a !important; /* Color de fondo para la fila seleccionada */
+    cursor: pointer !important; /* Cambia el cursor a puntero para indicar que se puede hacer clic */
+  }
+  
+  .selected-row:hover {
+    background-color: #6dbe10 !important; /* Color de fondo para la fila seleccionada al pasar el mouse */
+  }
+  .marked-column {
+    background-color: yellow !important;
+  }
+  .demo-row-is-clicked {
+    font-weight: bold;
+  }
