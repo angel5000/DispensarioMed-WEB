@@ -1,25 +1,25 @@
 export interface Paciente{
 idPaciente :number
 
- Cedula:string
+ cedula:string
 
- Nombres :string
+ nombres :string
 
 
- Apellidos:string
+ apellidos:string
 
- FechaNacimiento :string
+ fechaNacimiento :string
 
- Provincia:string
+ provincia:string
 
- Direccion:string
+ direccion:string
 
- NumCelular :string
+ numCelular :string
 
- Canton :string
+ canton :string
 
- Genero :string
+ genero :string
 
- CorreoElectronico :string
+ correoElectronico :string
 
 }

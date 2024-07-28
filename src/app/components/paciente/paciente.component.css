@@ -1,13 +1,17 @@
 #dvh3{
-    margin-top: 6%;
+    margin-top: 0%;
    margin-left: 2%;
 }
-
+#tab{
+    margin-top: 5%;
+    height: 100%;
+    width: 100%;
+}
 
 #divcontenedor{
     border:0.1px solid rgb(212, 197, 197);
     width: 85%;
-    height: 81%;
+    height: 90%;
     border-radius: 2px;
     margin-left: 7%;
     margin-top: 2%;
@@ -18,7 +22,7 @@
 
 #divform{
     
-    height:100%;
+    height:90%;
     width: 100%;
     margin-top: 7%;
     

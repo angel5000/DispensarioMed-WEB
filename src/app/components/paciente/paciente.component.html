@@ -1,7 +1,12 @@
-<div id="dvh3">
-    <h2>Informacion Personal</h2>
 
-</div>
+  <mat-tab-group id="tab">
+   
+      <mat-tab>
+        <ng-template mat-tab-label>Datos personales</ng-template>
+  
+
+
+
 <div id="divcontenedor">
 <div id="divform">
 <form action="">
@@ -9,15 +14,15 @@
     <div id="div3cl" class="row divisor" >
     <div class="col">
 <label for="">Cedula</label>
-<input  type="text" class="form-control"> 
+<input  type="text" id="cedula" class="form-control" [(ngModel)]="pacientes.cedula" name="cedula"> 
 </div>
 <div class="col">
 <label for="">Nombres</label>
-<input  type="text" class="form-control"> 
+<input  type="text" class="form-control" [(ngModel)]="pacientes.nombres" name="nombres"> 
 </div>
 <div class="col">
 <label for="">Apellidos</label>
-<input  type="text" class="form-control"> 
+<input  type="text" class="form-control" [(ngModel)]="pacientes.apellidos" name="apellidos"> 
 </div>
 <div class="col ">
     <label for="">Genero</label>
@@ -37,7 +42,7 @@
 <div id="div4cl" class="row divisor"> 
 <div class="col-md-4">
 <label for="">Fecha de Nacimiento</label>
-<input  type="date" class="form-control">
+<input  type="date" class="form-control" [(ngModel)]="pacientes.fechaNacimiento" name="fechaNacimiento">
 </div> 
 <div class="col-md-3">
 <label for="">Provincia</label>
@@ -60,17 +65,18 @@
 <div id="div5cl" class="row divisor"> 
 <div class="col-md-3">
 <label for="">Direccion</label>
-<textarea name="" id="" cols="30" rows="2" type="textarea" class="form-control"></textarea> 
+<textarea name="" id="" cols="30" rows="2" type="textarea" class="form-control" [(ngModel)]="pacientes.direccion" name="direccion"></textarea> 
 </div>
 <div class="col -md-6">
 <label for="">Numero de celular</label>
-<input  type="text" class="form-control"> 
+<input  type="text" class="form-control" [(ngModel)]="pacientes.numCelular" name="numCelular"> 
 </div>
 
 
 <div class="col -md-6">
 <label for="">Correo Electronico</label>
-<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"> 
+<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" 
+[(ngModel)]="pacientes.correoElectronico" name="correoElectronico"> 
 </div>
 
 </div>
@@ -95,3 +101,14 @@
 
 
 </div>
+</mat-tab>
+<mat-tab>
+    <ng-template mat-tab-label>Historial Medico</ng-template>
+    <h2>titulo</h2>
+</mat-tab>
+
+<mat-tab>
+    <ng-template mat-tab-label>Facturas</ng-template>
+    <h2>titulo</h2>
+</mat-tab>
+</mat-tab-group>
