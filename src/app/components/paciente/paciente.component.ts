@@ -7,8 +7,10 @@ import { format , parseISO , isValid, parse } from 'date-fns';
 import {Observable, Observer} from 'rxjs';
 import {MatTabsModule} from '@angular/material/tabs';
 import {AsyncPipe} from '@angular/common';
-
-
+import { HistorialMed } from '../Model/HistorialMed';
+import { HistorialServicio } from '../Servicios/HistorialServicio';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalComponent } from './Ver/modal/modal.component';
 @Component({
   selector: 'app-paciente',
   standalone: true,
@@ -20,6 +22,7 @@ import {AsyncPipe} from '@angular/common';
 
 export class PacienteComponent implements OnInit{
  paciente :Paciente[]=[];
+historial :HistorialMed[]=[];
   pacientes: Paciente = {
     idPaciente: 0,
     cedula: '',
@@ -33,21 +36,21 @@ export class PacienteComponent implements OnInit{
     genero: '',
     correoElectronico: ''
   };
+  
 
   
 
   
    
-
   
 
-  constructor(private Pacienteservis:PacienteServicio
-    ) {
+  constructor(private Pacienteservis:PacienteServicio,private historialservis:HistorialServicio
+,    public dialog: MatDialog ) {
       
   }
   ngOnInit():void{
     this.MostrardatosPaciente(37);
-   
+    this.MostrarHistorialPaciente(37);
  
   }
 MostrardatosPaciente(id:number){
@@ -78,6 +81,75 @@ MostrardatosPaciente(id:number){
 
   
 }
+MostrarHistorialPaciente(id:number){
+  this.historialservis.getHistorialById(id).subscribe({
+    next: (data: any) => {
+      if (data.$values) {
+      
+        this.historial  = data.$values;
+    
+
+      } else {
+        this.historial  = data;
+      }
+     // this.pacientes.fechaNacimiento = this.formatDate(this.pacientes.fechaNacimiento);
+       // this.paciente = data[0];
+      
+      console.log(this.historial);
+    },
+    error: (response: any) => {
+      console.log(response.error);
+     
+    },
+    complete: () => {
+      console.info('visualizacion de paciente');
+    }
+  });
+
+  
+}
+
+Ver(historial: HistorialMed){
+  const dialogRef = this.dialog.open(ModalComponent, {
+    width: '600px', height:'455px',
+    data: { ...historial  }
+  });
+  dialogRef.afterClosed().subscribe(result => {
+    if (result) {
+      // Asegúrate de que todos los campos necesarios estén presentes
+      const GetHistorial: HistorialMed = {
+        idHistorial: result.idHistorial,
+        nombrePaciente: result.nombrePaciente,
+        nombreMedico: result.nombreMedico,
+        diagnostico: result.diagnostico,
+        fechaHoraVisita: result.fechaHoraVisita,
+        sintomas: result.sintomas,
+        tratamiento: result.tratamiento,
+       
+        receta: result.receta,
+      };
+    
+      this.Pacienteservis.getPacienteById(result.id).subscribe({
+        next: data => {
+          console.log("d: "+data);
+         
+        },
+        error: (response: any) => {
+          console.log(response.error);
+         
+        },
+        complete: () => {
+          console.info('visualizacion de autor completa');
+        }
+      });
+
+      console.log('Datos guardados:', GetHistorial);
+    }
+  });
+
+  
+}
+
 
 private formatDate(dateString: string): string {
   console.log('Fecha original:', dateString);

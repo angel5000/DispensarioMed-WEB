@@ -1,0 +1,64 @@
+<h2 mat-dialog-title>Detalles Historial Medico</h2>
+<mat-dialog-content>
+  <div id="divform">
+    <form [formGroup]="verForm" >
+      <div class="row mb-4">
+        <mat-form-field appearance="fill">
+        <mat-label>ID</mat-label>
+        <input matInput formControlName="idHistorial" readonly>
+      </mat-form-field>
+     
+        <label for="colFormLabelSm1" class="col-sm-4 col-form-label col-form-label-sm">Nombre Paciente</label>
+        <div class="col-sm-6">
+         
+          <input type="text" class="form-control form-control-sm" id="colFormLabelSm1" matInput formControlName="nombrePaciente">
+       
+        </div>
+      </div>
+      <div class="row mb-3">
+
+    <label for="colFormLabel" class="col-sm-4 col-form-label col-form-label-sm">Nombre Medico</label>
+    <div class="col-sm-6">
+     
+      <input type="text" class="form-control form-control-sm" id="colFormLabel" matInput formControlName="nombreMedico">
+   
+    </div>
+
+</div>
+      <div class="row mb-4">
+        <label for="colFormLabelSm2" id="lb" class="col-sm-4 col-form-label col-form-label-sm">Fecha de Visita</label>
+        <div class="col-sm-7">
+          
+          <input type="text" class="form-control form-control-sm" id="colFormLabelSm2" 
+          matInput formControlName="fechaHoraVisita">
+      
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label for="floatingTextarea" class="col-sm-2 col-form-label col-form-label-sm">Diagnostico</label>
+        <div class="col-sm-7">
+          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" matInput formControlName="diagnostico"></textarea>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="floatingTextarea" class="col-sm-2 col-form-label col-form-label-sm">Sintomas</label>
+        <div class="col-sm-7">
+          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" matInput formControlName="sintomas"></textarea>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="floatingTextarea" class="col-sm-2 col-form-label col-form-label-sm">Tratamiento</label>
+        <div class="col-sm-7">
+          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" matInput formControlName="tratamiento"></textarea>
+        </div>
+      </div>
+      <div id="divbt">
+       
+        <button type="button" class="btn btn-primary col-md-5" style="margin-left: 30%;" (click)="onCancel()">Aceptar</button>
+      </div>
+    </form>
+  </div>
+</mat-dialog-content>
+
+
