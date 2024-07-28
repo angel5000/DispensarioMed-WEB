@@ -39,7 +39,11 @@ export class CabeceraComponent implements OnInit {
     });
   }
 
-
+perfil():void{
+  this.router.navigate(['/paciente']).then(() => {
+    window.location.reload();
+  });
+}
 
   
 }

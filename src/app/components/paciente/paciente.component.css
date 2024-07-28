@@ -1,0 +1,74 @@
+#dvh3{
+    margin-top: 6%;
+   margin-left: 2%;
+}
+
+
+#divcontenedor{
+    border:0.1px solid rgb(212, 197, 197);
+    width: 85%;
+    height: 81%;
+    border-radius: 2px;
+    margin-left: 7%;
+    margin-top: 2%;
+    border-radius: 10px;
+    box-shadow:rgb(12, 53, 77) 15px 5px 11px;
+    background:-webkit-linear-gradient(bottom,rgb(83, 165, 158), rgba(81, 148, 187, 0.103));
+}
+
+#divform{
+    
+    height:100%;
+    width: 100%;
+    margin-top: 7%;
+    
+}
+#div3cl{
+  margin-top: 5%;
+  margin-left: 2%;
+
+}
+input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background:-webkit-linear-gradient(bottom,rgba(174, 219, 216, 0.445), rgba(163, 186, 199, 0.103));
+}
+select{
+    margin-top: 10px;
+    background:-webkit-linear-gradient(bottom,rgba(184, 221, 218, 0.534), rgba(163, 186, 199, 0.103));
+}
+textarea{
+    margin-top: 10px;
+    background:-webkit-linear-gradient(bottom,rgba(178, 221, 218, 0.541), rgba(163, 186, 199, 0.103));
+}
+
+#div4cl{
+    margin-top: 3%;
+    margin-left: 2%;
+  
+  }
+  #div5cl{
+    margin-top: 3%;
+    margin-left: 2%;
+  
+  }
+ label{
+    margin-right: 5%;
+ }
+ select{
+    width: 65%;
+ }
+
+ .divisor{
+   
+    width: 96%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow:rgb(34, 73, 95) 15px 5px 11px;
+    background:-webkit-linear-gradient(bottom,rgb(138, 196, 191), rgba(137, 194, 189, 0.322));
+ }
+
+ #divbt{
+    margin-left: 30%;
+    
+ }

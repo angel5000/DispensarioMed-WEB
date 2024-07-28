@@ -3,10 +3,11 @@ import { AgendamientoComponent } from './components/agendamiento/agendamiento.co
 import { LoginComponent } from './components/login/login.component';
 import { VentaComponent } from './components/venta/venta.component';
 import { PrincipalComponent } from './components/principal/principal.component';
-
+import { PacienteComponent } from './components/paciente/paciente.component';
 export const routes: Routes = [
     { path: '', redirectTo: 'agendamiento', pathMatch: 'full' },
     { path: 'agendamiento', title: "Agendamiento", component: AgendamientoComponent },
+    { path: 'paciente', title: "Paciente", component: PacienteComponent },
     {
         path: 'dashboard-medicos',
         title: 'Dashboard Medicos',

@@ -10,7 +10,11 @@ body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+body {
 
+    background:-webkit-linear-gradient(bottom,rgb(245, 245, 245), rgba(116, 181, 219, 0.486));
+  
+  }
 :root {
     --green-custom: #3be057b0;
     --black-custom: #333333;

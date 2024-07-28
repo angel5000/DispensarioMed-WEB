@@ -26,7 +26,23 @@
       </div>
       <div id="dvbt" class="d-flex justify-content-end">
         <ng-container *ngIf="isLoggedIn(); else loginButton">
-          <span>{{ nombreUsuario }}</span>
+          <span>
+            
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ nombreUsuario }}
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" (click)="perfil()">Perfil</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </div>
+           
+          
+          
+          
+          </span>
           <button type="button" class="btn btn-danger mx-2" (click)="logout()">Cerrar Sesión</button>
         </ng-container>
         <ng-template #loginButton>
