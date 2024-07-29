@@ -40,7 +40,18 @@ export class ModalComponent {
     
     });
 }
-
+ngOnInit(): void {
+  // Aquí puedes deshabilitar el input
+  this.verForm.get('idHistorial')?.disable();
+ 
+  this.verForm.get('nombrePaciente')?.disable();
+  this.verForm.get('nombreMedico')?.disable();
+  this.verForm.get('diagnostico')?.disable();
+  this.verForm.get('fechaHoraVisita')?.disable();
+  this.verForm.get('sintomas')?.disable();
+  this.verForm.get('tratamiento')?.disable();
+  this.verForm.get('receta')?.disable();
+}
 onCancel(): void {
   this.dialogRef.close();
 }
