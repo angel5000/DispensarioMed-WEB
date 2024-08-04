@@ -14,27 +14,23 @@
     <div id="div3cl" class="row divisor" >
     <div class="col">
 <label for="">Cedula</label>
-<input  type="text" id="cedula" class="form-control" [(ngModel)]="pacientes.cedula" name="cedula"> 
+<input [readonly]="isReadOnly"  type="text" id="cedula" class="form-control" [(ngModel)]="pacientes.cedula" name="cedula"> 
 </div>
 <div class="col">
 <label for="">Nombres</label>
-<input  type="text" class="form-control" [(ngModel)]="pacientes.nombres" name="nombres"> 
+<input [readonly]="isReadOnly"  type="text" class="form-control" [(ngModel)]="pacientes.nombres" name="nombres"> 
 </div>
 <div class="col">
 <label for="">Apellidos</label>
-<input  type="text" class="form-control" [(ngModel)]="pacientes.apellidos" name="apellidos"> 
+<input  [readonly]="isReadOnly" type="text" class="form-control" [(ngModel)]="pacientes.apellidos" name="apellidos"> 
 </div>
-<div class="col ">
-    <label for="">Genero</label>
-    <select name="" id="" class="form-select">
-        <option value="">
-            Masculino
-        </option>
-        <option value="">
-            Femenino
-        </option>
+<div class="col">
+    <label for="genero">Género</label>
+    <select [disabled]="isReadOnly" name="genero" id="genero" class="form-select" [(ngModel)]="pacientes.genero">
+        <option value="M">Masculino</option>
+        <option value="F">Femenino</option>
     </select>
-    </div>
+</div>
 
 </div>
 
@@ -42,54 +38,58 @@
 <div id="div4cl" class="row divisor"> 
 <div class="col-md-4">
 <label for="">Fecha de Nacimiento</label>
-<input  type="date" class="form-control" [(ngModel)]="pacientes.fechaNacimiento" name="fechaNacimiento">
+<input [readonly]="isReadOnly" type="date" class="form-control" [(ngModel)]="pacientes.fechaNacimiento" name="fechaNacimiento">
 </div> 
 <div class="col-md-3">
-<label for="">Provincia</label>
-<select name="" id="" class="form-select">
-<option value="">
-    Guayas
-</option>
-
-</select>
-</div>
+    <label for="provincia">Provincia</label>
+    <select [disabled]="isReadOnly" id="provincia" class="form-select" [(ngModel)]="selectedProvincia" (change)="onProvinciaChange()" name="provincia">
+      <option *ngFor="let provincia of provincias" [value]="provincia.nombre">{{ provincia.nombre }}</option>
+    </select>
+  </div>
 <div class="col-md-3">
-<label for="">Canton</label>
-<select name="" id="" class="form-select">
-<option value="">Guayaquil</option>
-
-</select> 
-</div>
+    <label for="canton">Canton</label>
+    <select [disabled]="isReadOnly" id="canton" class="form-select" [(ngModel)]="pacientes.canton" name="canton">
+      <option *ngFor="let canton of cantones" [value]="pacientes.canton">{{ canton }}</option>
+    </select>
+  </div>
 </div>
 
 <div id="div5cl" class="row divisor"> 
 <div class="col-md-3">
 <label for="">Direccion</label>
-<textarea name="" id="" cols="30" rows="2" type="textarea" class="form-control" [(ngModel)]="pacientes.direccion" name="direccion"></textarea> 
+<textarea [readonly]="isReadOnly" name="" id="" cols="30" rows="2" type="textarea" class="form-control" [(ngModel)]="pacientes.direccion" name="direccion"></textarea> 
 </div>
 <div class="col -md-6">
 <label for="">Numero de celular</label>
-<input  type="text" class="form-control" [(ngModel)]="pacientes.numCelular" name="numCelular"> 
+<input  type="text" class="form-control" [(ngModel)]="pacientes.numCelular" name="numCelular" [readonly]="isReadOnly"> 
 </div>
 
 
 <div class="col -md-6">
 <label for="">Correo Electronico</label>
 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" 
-[(ngModel)]="pacientes.correoElectronico" name="correoElectronico"> 
+[(ngModel)]="pacientes.correoElectronico" name="correoElectronico" [readonly]="isReadOnly"> 
 </div>
 
 </div>
-
 <div class="row my-5" id="divbt">
     <div class="col-md-4">
-        <button type="button" class="btn btn-primary col-md-7 ">Editar</button>
+        <button
+        type="button"
+        [class]="isReadOnly ? 'btn btn-primary col-md-7' : 'btn btn-danger col-md-7'"
+        (click)="activarCampos()"
+      >
+        {{ isReadOnly ? 'Editar' : 'Cancelar' }}
+      </button>
     </div>
+
+
     <div class="col-md-4">
-        <button type="button" class="btn btn-success col-md-7 ">Aceptar</button>
+        <button [disabled]="isReadOnly" type="button" class="btn btn-success col-md-7 " (click)="actualizarPaciente()" >Aceptar</button>
     
     </div>
     </div>
+
 </div>
 
 
@@ -142,6 +142,44 @@
 
 <mat-tab>
     <ng-template mat-tab-label>Facturas</ng-template>
-    <h2>titulo</h2>
+   
+    <div  class="border border-success p-2 mx-4 " style="--bs-border-opacity: .5;" >
+        <table class="table table-hover mat-elevation-z8 demo-table">
+            <thead>
+              <tr >
+                <th scope="col" >#</th>
+                <th scope="col" hidden>IDFactura</th>
+                <th scope="col">Paciente</th>
+                <th scope="col">Fecha de Facturacion</th>
+                <th scope="col">Medico</th>
+                <th scope="col">ACCIONES</th>
+              </tr>
+            </thead>
+            <tbody>
+                @for(elem of Facturas; track elem.idFactura ){
+              <tr> 
+              
+              
+                <td >{{elem.idFactura}}</td>
+                <td >{{elem.nombresPaciente}}</td>
+                <td >{{elem.fechaFacturacion}}</td>
+                <td >{{elem.nombresMedico}}</td>
+           <td><button class="btn btn-primary btn-sm" title="Ver" >
+            <i class="material-symbols-outlined">
+            Visualizar</i>
+            <svg style ="margin-left: 10px"xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 980 960" width="24px" fill="#e8eaed"><path d="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z"/></svg>
+          </button></td>
+                
+               
+              </tr>
+                }
+            </tbody>
+          </table>
+    
+    </div>
+
+
+
+
 </mat-tab>
 </mat-tab-group>

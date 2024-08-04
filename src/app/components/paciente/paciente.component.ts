@@ -11,10 +11,14 @@ import { HistorialMed } from '../Model/HistorialMed';
 import { HistorialServicio } from '../Servicios/HistorialServicio';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from './Ver/modal/modal.component';
+import { CommonModule } from '@angular/common';
+import { FacturasServicio } from '../Servicios/FacturasServicio';
+import { FactoryTarget } from '@angular/compiler';
+import { Facturas } from '../Model/Facturas';
 @Component({
   selector: 'app-paciente',
   standalone: true,
-  imports: [FormsModule,MatTabsModule, AsyncPipe],
+  imports: [FormsModule,MatTabsModule, AsyncPipe, CommonModule],
   templateUrl: './paciente.component.html',
   styleUrl: './paciente.component.css'
 })
@@ -23,6 +27,17 @@ import { ModalComponent } from './Ver/modal/modal.component';
 export class PacienteComponent implements OnInit{
  paciente :Paciente[]=[];
 historial :HistorialMed[]=[];
+Facturas :Facturas[]=[];
+isReadOnly: boolean = true; 
+isEditMode: boolean = false;
+provincias: { nombre: string; cantones: string[] }[] = [
+  { nombre: 'Guayas', cantones: ['Guayaquil', 'Duran', 'Balao'] },
+  { nombre: 'Pichincha', cantones: ['Quito', 'Rumiñahui', 'Mejia'] },
+  { nombre: 'Azuay', cantones: ['Cuenca', 'Camilo Ponce Enríquez', 'Chordeleg'] },
+  // Añade más provincias y cantones según sea necesario
+];
+cantones: string[] = [];
+selectedProvincia: string = '';
   pacientes: Paciente = {
     idPaciente: 0,
     cedula: '',
@@ -45,13 +60,66 @@ historial :HistorialMed[]=[];
   
 
   constructor(private Pacienteservis:PacienteServicio,private historialservis:HistorialServicio
-,    public dialog: MatDialog ) {
+,    public dialog: MatDialog ,private factureg:FacturasServicio ) {
       
   }
+ /* onProvinciaChange(event: Event): void {
+    const provinciaSeleccionada = this.provincias.find(p => p.nombre === this.selectedProvincia);
+    if (provinciaSeleccionada) {
+      this.cantones = provinciaSeleccionada.cantones;
+  
+      // Seleccionar el cantón del paciente si existe en la lista de cantones
+      if (this.pacientes.canton && this.cantones.includes(this.pacientes.canton)) {
+        this.pacientes.canton = this.pacientes.canton;
+      } else {
+        this.pacientes.canton = ''; // O un valor por defecto si lo prefieres
+      }
+    } else {
+      this.cantones = [];
+      this.pacientes.canton = '';
+    }
+  }*/
+  onProvinciaChange() {
+    const provinciaSeleccionada = this.provincias.find(p => p.nombre === this.selectedProvincia);
+    if (provinciaSeleccionada) {
+      this.cantones = provinciaSeleccionada.cantones;
+
+      console.log(this.selectedProvincia);
+      // Seleccionar el cantón del paciente si existe en la lista de cantones
+      if (this.pacientes.canton && this.cantones.includes(this.pacientes.canton)) {
+        this.pacientes.canton = this.pacientes.canton;
+        
+   
+      } else {
+        this.pacientes.canton = ''; // O un valor por defecto si lo prefieres
+      }
+    } else {
+      this.cantones = [];
+      
+      //this.pacientes.canton = '';
+    }
+  }
+  activarCampos(): void {
+    this.isReadOnly = !this.isReadOnly; // Cambia el estado de solo lectura
+    this.isEditMode = !this.isEditMode;
+  }
+  actualizarPaciente(): void {
+    this.pacientes.provincia=this.selectedProvincia;
+    this.Pacienteservis.updatePaciente(37, this.pacientes).subscribe(
+      updatedPaciente => {
+        console.log('Paciente actualizado:', updatedPaciente);
+        this.isReadOnly = true;
+      },
+      error => {
+        console.error('Error al actualizar el paciente:', error);
+      }
+    );
+  }
+
   ngOnInit():void{
     this.MostrardatosPaciente(37);
     this.MostrarHistorialPaciente(37);
- 
+    this.MostrarFacturaReg(37);
   }
 MostrardatosPaciente(id:number){
   this.Pacienteservis.getPacienteById(id).subscribe({
@@ -67,8 +135,10 @@ MostrardatosPaciente(id:number){
       }
       this.pacientes.fechaNacimiento = this.formatDate(this.pacientes.fechaNacimiento);
        // this.paciente = data[0];
-      
-      console.log(this.pacientes);
+       this.selectedProvincia = this.pacientes.provincia;
+      // this.pacientes.provincia=this.selectedProvincia;
+      this.onProvinciaChange();
+      console.log(this.pacientes.provincia+" :"+this.selectedProvincia);
     },
     error: (response: any) => {
       console.log(response.error);
@@ -95,6 +165,33 @@ MostrarHistorialPaciente(id:number){
      // this.pacientes.fechaNacimiento = this.formatDate(this.pacientes.fechaNacimiento);
        // this.paciente = data[0];
       
+      console.log(this.Facturas);
+    },
+    error: (response: any) => {
+      console.log(response.error);
+     
+    },
+    complete: () => {
+      console.info('visualizacion de paciente');
+    }
+  });
+
+  
+}
+MostrarFacturaReg(id:number){
+  this.factureg.getFacturasById(id).subscribe({
+    next: (data: any) => {
+      if (data.$values) {
+        this.Facturas  = data.$values;
+    
+
+      } else {
+        this.Facturas = data;
+      }
+        
+     // this.pacientes.fechaNacimiento = this.formatDate(this.pacientes.fechaNacimiento);
+       // this.paciente = data[0];
+      
       console.log(this.historial);
     },
     error: (response: any) => {
@@ -108,7 +205,6 @@ MostrarHistorialPaciente(id:number){
 
   
 }
-
 Ver(historial: HistorialMed){
   const dialogRef = this.dialog.open(ModalComponent, {
     width: '600px', height:'455px',
