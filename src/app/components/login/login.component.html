@@ -4,18 +4,18 @@
         <mat-card-title>Inicio de Sesión</mat-card-title><br>
       </mat-card-header>
   
-      <form [formGroup]="usuarioLogin" (ngSubmit)="iniciarSesion()">
+      <form [formGroup]="usuarioLogin" (ngSubmit)="login()">
         <div class="CajasTexto">
         
           <mat-form-field appearance="outline">
             <mat-label>Digite su Correo</mat-label>
-            <input matInput formControlName="email" placeholder="Correo">
+            <input matInput formControlName="Usuario" placeholder="Correo">
             <mat-icon matSuffix>alternate_email</mat-icon>
           </mat-form-field>
        
           <mat-form-field appearance="outline">
             <mat-label>Digite su contraseña</mat-label>
-            <input matInput formControlName="clave" [type]="hide ? 'password' : 'text'" placeholder="Contraseña">
+            <input matInput formControlName="Contrasena" [type]="hide ? 'password' : 'text'" placeholder="Contraseña">
             <button mat-icon-button matSuffix type="button" (click)="togglePasswordVisibility()">
               <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
             </button>

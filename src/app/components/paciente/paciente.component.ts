@@ -15,6 +15,7 @@ import { CommonModule } from '@angular/common';
 import { FacturasServicio } from '../Servicios/FacturasServicio';
 import { FactoryTarget } from '@angular/compiler';
 import { Facturas } from '../Model/Facturas';
+import { AuthServicio } from '../Servicios/AuthServicio';
 @Component({
   selector: 'app-paciente',
   standalone: true,
@@ -53,16 +54,16 @@ selectedProvincia: string = '';
   };
   
 
-  
-
-  
+ 
    
   
 
   constructor(private Pacienteservis:PacienteServicio,private historialservis:HistorialServicio
-,    public dialog: MatDialog ,private factureg:FacturasServicio ) {
+,    public dialog: MatDialog ,private factureg:FacturasServicio,private authServicio: AuthServicio ) {
       
   }
+ 
+  
  /* onProvinciaChange(event: Event): void {
     const provinciaSeleccionada = this.provincias.find(p => p.nombre === this.selectedProvincia);
     if (provinciaSeleccionada) {
@@ -104,22 +105,36 @@ selectedProvincia: string = '';
     this.isEditMode = !this.isEditMode;
   }
   actualizarPaciente(): void {
-    this.pacientes.provincia=this.selectedProvincia;
-    this.Pacienteservis.updatePaciente(37, this.pacientes).subscribe(
-      updatedPaciente => {
-        console.log('Paciente actualizado:', updatedPaciente);
-        this.isReadOnly = true;
-      },
-      error => {
-        console.error('Error al actualizar el paciente:', error);
-      }
-    );
+    const userId = this.authServicio.getUserId();
+    if (userId !== null) {
+      this.pacientes.provincia = this.selectedProvincia;
+      this.Pacienteservis.updatePaciente(userId, this.pacientes).subscribe(
+        updatedPaciente => {
+          console.log('Paciente actualizado:', updatedPaciente);
+          this.isReadOnly = true;
+        },
+        error => {
+          console.error('Error al actualizar el paciente:', error);
+        }
+      );
+    } else {
+      console.error('User ID is null. Cannot update paciente.');
+    }
   }
 
   ngOnInit():void{
-    this.MostrardatosPaciente(37);
-    this.MostrarHistorialPaciente(37);
-    this.MostrarFacturaReg(37);
+ 
+
+    const userId = this.authServicio.getUserId();
+    console.log(userId);
+    if (userId !== null) {
+      this.MostrardatosPaciente(userId);
+      this.MostrarHistorialPaciente(userId);
+      this.MostrarFacturaReg(userId);
+    } else {
+      console.error('User ID not found');
+    }
+  //  this.MostrardatosPaciente(46);
   }
 MostrardatosPaciente(id:number){
   this.Pacienteservis.getPacienteById(id).subscribe({

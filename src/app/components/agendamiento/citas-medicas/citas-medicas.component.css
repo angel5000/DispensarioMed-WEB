@@ -1,0 +1,8 @@
+.action-buttons {
+    display: flex;
+    gap: 5px; /* Espacio entre botones, ajusta según sea necesario */
+}
+
+.action-buttons button {
+    margin-right: 5px; /* Espacio entre botones, ajusta según sea necesario */
+}

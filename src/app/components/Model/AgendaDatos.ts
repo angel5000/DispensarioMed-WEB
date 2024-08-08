@@ -1,5 +1,6 @@
 export interface AgendaDatos{
     $id: number,
+    idHorario:number,
     fechaHora: string,
     nombreDoctor: string,
     disponibilidad: string,

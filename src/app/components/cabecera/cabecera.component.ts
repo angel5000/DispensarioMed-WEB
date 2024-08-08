@@ -45,5 +45,11 @@ perfil():void{
   });
 }
 
+CitasMedicas():void{
+  this.router.navigate(['/citasmedicas']).then(() => {
+    window.location.reload();
+  });
+}
+
   
 }

@@ -18,7 +18,7 @@ export class PacienteServicio {
   
 
   getPacienteById(id: number): Observable<Paciente> {
-    return this.http.get<Paciente>(`${this.apiUrl}?id=${id}`);
+    return this.http.get<Paciente>(`${this.apiUrl}/${id}`);
   }
   
   updatePaciente(id: number, paciente: Paciente): Observable<Paciente> {
