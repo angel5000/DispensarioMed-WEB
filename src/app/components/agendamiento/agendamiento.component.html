@@ -49,6 +49,7 @@
             <th scope="col">Direccion</th>
             <th scope="col">Habitacion</th>
             <th scope="col">Disponibilidad</th>
+            <th scope="col">Accion</th>
           </tr>
         </thead>
         <tbody>
@@ -58,7 +59,7 @@
           [ngClass]="{'demo-row-is-clicked': selectedHorario?.$id === elem.$id}">
          
           
-            <td >{{elem.$id}}</td>
+            <td >{{elem.idHorario}}</td>
        
             <td >{{elem.nombreDoctor }}</td>
             <td>{{elem.especialidad}}</td>
@@ -66,7 +67,9 @@
             <td>{{elem.direccion}}</td>
             <td>{{elem.habitacion}}</td>
             <td>{{elem.disponibilidad}}</td>
-           
+            <div id="divbt" >
+              <button id="btacep"type="button" class="btn btn-success" (click)="navigateToVenta(elem.idHorario)">Aceptar</button>
+          </div>
           </tr>
         }
         </tbody>
@@ -75,9 +78,7 @@
 </div>
 <span class="spn">Horario seleccionado: {{ selectedHorario?.fechaHora }}</span>
 
-<div id="divbt"class="d-flex justify-content-lg-end">
-    <button id="btacep"type="button"[disabled]="!selectedHorario" class="btn btn-success" (click)="navigateToVenta()">Aceptar</button>
-</div>
+
 <p>
 
 </p>

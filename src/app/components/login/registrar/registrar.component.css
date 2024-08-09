@@ -1,0 +1,30 @@
+.Contenedor {
+    border:0.1px solid rgb(212, 197, 197);
+    width: 85%;
+    height: 90%;
+    border-radius: 2px;
+    margin-left: 7%;
+    margin-top: 2%;
+    border-radius: 10px;
+    box-shadow:rgb(12, 53, 77) 15px 5px 11px;
+    background:-webkit-linear-gradient(bottom,rgb(83, 165, 158), rgba(81, 148, 187, 0.103));
+    margin-bottom: 3%;
+  }
+  #divuser{
+margin-top: 2%;
+margin-left: 12%;
+margin-bottom: 5%;
+  }
+  h2{
+    margin-left: 5%;
+    margin-top: 2%;
+  }
+  #divcd{
+    margin-left: 2%;
+  }
+ #divbt{
+    margin-left: 40%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+
+ }

@@ -16,52 +16,52 @@
                 <li>
                     <label for="ID_CITA">ID CITA:</label>
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled>
-                        <label for="floatingInputDisabled">09542</label>
+                        <input type="email" class="form-control" id="floatingInputDisabled" [value]="horario?.idHorario" disabled>
+                     
                     </div>
                 </li>
                 <li>
                     <label for="ID_DOCTOR">ID DOCTOR:</label>
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled>
-                        <label for="floatingInputDisabled">04540</label>
+                        <input type="email" class="form-control" id="floatingInputDisabled" [value]="horario?.idDoctor" disabled>
+                        
                     </div>
                 </li>
                 <li>
                     <label for="NOMBRE_DOCTOR">NOMBRE DE DOCTOR:</label>
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled>
-                        <label for="floatingInputDisabled">Jose Paredes</label>
+                        <input type="email" class="form-control" id="floatingInputDisabled" [value]="horario?.nombreDoctor" disabled>
+                        
                     </div>
                     
                 </li>
                 <li>
                     <label for="LUGAR_DISPESARIO">LUGAR DE DISPENSARIO:</label>
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled>
-                        <label for="floatingInputDisabled">Sector Norte Calle 8 avenida 3 Mz3</label>
+                        <input type="email" class="form-control" id="floatingInputDisabled" [value]="horario?.direccion" disabled>
+                     
                     </div>
 
                 </li>
                 <li>
                     <label for="HORARIO">HORARIO:</label>
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled>
-                        <label for="floatingInputDisabled">10:00 AM</label>
+                        <input type="email" class="form-control" id="floatingInputDisabled" [value]="horario?.fechaHora" disabled>
+                     
                     </div>
                 </li>
                 <li>
                     <label for="ESPECIALIDAD">ESPECIALIDAD:</label>
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled>
-                        <label for="floatingInputDisabled">Medicina General</label>
+                        <input type="email" class="form-control" id="floatingInputDisabled" [value]="horario?.especialidad" disabled>
+                  
                     </div>
                 </li>
                 <li>
                     <label for="HABITACION">HABITACION:</label>
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled>
-                        <label for="floatingInputDisabled">L1</label>
+                        <input type="email" class="form-control" id="floatingInputDisabled" [value]="horario?.habitacion" disabled>
+                       
                     </div>
                 </li>
             </ul>
@@ -95,7 +95,7 @@
                     </div>
             </ul>
             <div class="d-flex justify-content-center mt-1  mb-1">
-            <button type="button" class="btn btn-primary">Generar comprobante   </button>
+            <button type="button" class="btn btn-primary" (click)="generatePDF()">Generar comprobante   </button>
         </div>
         </div>
     </div>

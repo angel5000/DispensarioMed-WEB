@@ -1,0 +1,108 @@
+<h2 mat-dialog-title>Informacion del usuario</h2>
+<mat-dialog-content>
+  <div id="divform">
+    <form [formGroup]="verForm">
+   
+     
+
+      <!-- ID Paciente -->
+      <div [hidden]="true" class="row mb-4">
+        <mat-form-field appearance="fill">
+          <mat-label>ID Paciente</mat-label>
+          <input matInput formControlName="idPaciente" readonly>
+        </mat-form-field>
+      </div>
+
+     
+      <div class="row mb-4">
+        <label for="colFormLabelSm1" class="col-sm-4 col-form-label col-form-label-sm">Cedula</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control form-control-sm" id="colFormLabelSm1" matInput formControlName="cedula" readonly>
+        </div>
+    </div>
+     
+      <!-- Nombres -->
+      <div class="row mb-4">
+        <label for="colFormLabelSm1" class="col-sm-4 col-form-label col-form-label-sm">Nombres</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control form-control-sm" id="colFormLabelSm1" matInput formControlName="nombres" readonly>
+        </div>
+      </div>
+
+      <!-- Apellidos -->
+      <div class="row mb-4">
+        <label for="colFormLabelSm2" class="col-sm-4 col-form-label col-form-label-sm">Apellidos</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control form-control-sm" id="colFormLabelSm2" matInput formControlName="apellidos" readonly>
+        </div>
+      </div>
+
+      <!-- Fecha de Nacimiento -->
+      <div class="row mb-4">
+        <label for="colFormLabelSm3" class="col-sm-4 col-form-label col-form-label-sm">Fecha de Nacimiento</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control form-control-sm" id="colFormLabelSm3" matInput formControlName="fechaNacimiento" readonly>
+        </div>
+      </div>
+
+      <!-- Provincia -->
+      <div class="row mb-4">
+        <label for="colFormLabelSm4" class="col-sm-4 col-form-label col-form-label-sm">Provincia</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control form-control-sm" id="colFormLabelSm4" matInput formControlName="provincia" readonly>
+        </div>
+      </div>
+
+      <!-- Cantón -->
+      <div class="row mb-4">
+        <label for="colFormLabelSm5" class="col-sm-4 col-form-label col-form-label-sm">Cantón</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control form-control-sm" id="colFormLabelSm5" matInput formControlName="canton" readonly>
+        </div>
+      </div>
+
+      <!-- Dirección -->
+      <div class="row mb-4">
+        <label for="colFormLabelSm6" class="col-sm-4 col-form-label col-form-label-sm">Dirección</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control form-control-sm" id="colFormLabelSm6" matInput formControlName="direccion" readonly>
+        </div>
+      </div>
+
+      <!-- Número de Celular -->
+      <div class="row mb-4">
+        <label for="colFormLabelSm7" class="col-sm-4 col-form-label col-form-label-sm">Número de Celular</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control form-control-sm" id="colFormLabelSm7" matInput formControlName="numCelular" readonly>
+        </div>
+      </div>
+
+      <!-- Género -->
+      <div class="row mb-4">
+        <label for="colFormLabelSm8" class="col-sm-4 col-form-label col-form-label-sm">Género</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control form-control-sm" id="colFormLabelSm8" matInput formControlName="genero" readonly>
+        </div>
+      </div>
+
+      <!-- Correo Electrónico -->
+      <div class="row mb-4">
+        <label for="colFormLabelSm9" class="col-sm-4 col-form-label col-form-label-sm">Correo Electrónico</label>
+        <div class="col-sm-6">
+          <input type="email" class="form-control form-control-sm" id="colFormLabelSm9" matInput formControlName="correoElectronico" readonly>
+        </div>
+      </div>
+
+     
+
+
+   
+>
+
+      <!-- Botón Aceptar -->
+      <div id="divbt">
+        <button type="button" class="btn btn-primary col-md-5" style="margin-left: 30%;" (click)="onCancel()">Aceptar</button>
+      </div>
+    </form>
+  </div>
+</mat-dialog-content>

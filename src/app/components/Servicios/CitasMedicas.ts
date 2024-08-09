@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient ,HttpHeaders,HttpParams } from '@angular/common/http';
 import {  BehaviorSubject,Observable } from 'rxjs';
 
-import { CitasMedicas } from '../Model/Citasmedicas';
+import { CitasMedica, CitasMedicas } from '../Model/Citasmedicas';
 import { Reprogramar } from '../Model/Reprogramar';
 import { CancelarCita } from '../Model/CancelarCita';
 @Injectable({
@@ -15,7 +15,13 @@ export class CitasMedicasServicio {
 
   constructor(private http: HttpClient) { }
   
+  ingresarCitaMedica(cita: CitasMedica): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
 
+    return this.http.post<any>(this.apiUrl, cita, { headers });
+  }
   getCitasMedicasById(id: number): Observable<CitasMedicas> {
     return this.http.get<CitasMedicas>(`${this.apiUrl}/${id}`);
   }

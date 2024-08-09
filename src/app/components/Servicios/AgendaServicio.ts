@@ -6,6 +6,7 @@ import { Ubicaciones } from '../Model/Ubicaciones';
 import { tap } from 'rxjs/operators';
 import { Especialidad } from '../Model/Especialidades';
 import { AgendaDatos } from '../Model/AgendaDatos';
+import { CitaEscogida } from '../Model/CitaEscogida';
 
 @Injectable({
   providedIn: 'root'
@@ -19,13 +20,15 @@ export class AgendaServicio {
   constructor(private http: HttpClient) { }
   /*private autoresSubject = new BehaviorSubject<any[]>([]);
   autores$ = this.autoresSubject.asObservable();*/
-  getAutorById(id: number): Observable<Ubicaciones> {
+ /* getAutorById(id: number): Observable<Ubicaciones> {
     return this.http.get<Ubicaciones>(`${this.apiUrl}/${id}`);
-  }
+  }*/
   /*getAllSectores(): Observable<Ubicaciones[]> {
     return this.http.get<Ubicaciones[]>(this.apiUrl);
   }*/
-
+  obtenerHorarioPorId(idHorario: number): Observable<CitaEscogida> {
+    return this.http.get<CitaEscogida>(`${this.apiUrlAgenda}/${idHorario}`);
+  }
   getAllSectores(): Observable<Ubicaciones> {
     return this.http.get<Ubicaciones>(this.apiUrl);
   }

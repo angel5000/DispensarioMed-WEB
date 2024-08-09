@@ -12,3 +12,9 @@ export interface CitasMedicas{
     sector:string
   
 }
+export interface CitasMedica {
+    idpaciente?: number;
+    idmedico?: number;
+    idhorarioCitas?: number;
+    motivo?: string;
+  }

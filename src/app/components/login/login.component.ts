@@ -92,7 +92,13 @@ export class LoginComponent {
     
     }
   }
-  
+  registro(){
+    this.router.navigate(['/registrar']).then(() => {
+          
+      window.location.reload();
+      
+    });
+  }
   
   /*
   login(username: string, password: string): void {

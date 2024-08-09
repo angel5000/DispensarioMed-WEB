@@ -1,0 +1,53 @@
+<h2 mat-dialog-title>Reprogramar Cita Medica</h2>
+<mat-dialog-content>
+  <div id="divform">
+    <form [formGroup]="editForm" >
+      <div class="row mb-4">
+        <mat-form-field appearance="fill">
+        <mat-label>ID</mat-label>
+        <input matInput formControlName="idusuario" readonly>
+      </mat-form-field>
+     
+      </div>
+      <div class="row mb-3">
+
+    <label for="colFormLabel" class="col-sm-4 col-form-label col-form-label-sm">Nombre de Usuario</label>
+    <div class="col-sm-6">
+     
+      <input type="text" class="form-control form-control-sm" id="colFormLabel" matInput formControlName="nombreUsuario">
+   
+    </div>
+
+</div>
+      <div class="row mb-4">
+        <label for="colFormLabelSm2" id="lb" class="col-sm-4 col-form-label col-form-label-sm">Estado</label>
+        <div class="col-sm-7">
+
+         
+
+            <mat-form-field appearance="fill">
+                <mat-label>Cambiar estado...</mat-label>
+                <mat-select formControlName="Estados" placeholder="Cambiar estado...">
+                  <mat-option value="A">Activo</mat-option>
+                  <mat-option value="E">Inactivo</mat-option>
+                
+                </mat-select>
+              </mat-form-field>
+        
+         
+           
+     
+    
+        </div>
+      </div>
+
+      <div id="divbt">
+       
+        <button type="button" class="btn btn-primary col-md-5" style="margin-left: 30%;" (click)="onClose()">Aceptar</button>
+      </div>
+    </form>
+  </div>
+</mat-dialog-content>
+
+
+

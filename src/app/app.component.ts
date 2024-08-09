@@ -28,13 +28,20 @@ export class AppComponent {
             event.urlAfterRedirects === '/venta' ||
             event.urlAfterRedirects === '/principal' ||
             event.urlAfterRedirects === '/agendamiento'
+          
             )
 this.showHeader=!(
   event.urlAfterRedirects === '/venta' ||
   event.urlAfterRedirects === '/login' ||
+  event.urlAfterRedirects === '/admin' ||
+  event.urlAfterRedirects === '/registrar' ||
             event.urlAfterRedirects.startsWith('/dashboard-medicos')
 )
+this.showFooter= (
+  event.urlAfterRedirects === '/registrar', 
+  event.urlAfterRedirects === '/admin' 
 
+  )
 /*this.showFooter= (
             event.urlAfterRedirects === '/login' ||
             event.urlAfterRedirects.startsWith('/dashboard-medicos') )

@@ -38,8 +38,10 @@ export class AgendamientoComponent implements OnInit {
     this.MostrarEspecialidades();
   }
 
-  navigateToVenta() {
-    this.router.navigate(['/venta']);
+  navigateToVenta(id:number) {
+    if (this.selectedHorario) {
+      this.router.navigate(['/venta', id]);
+    }
   }
   getHorarios(): void {
     const sector = this.formselect.value.slubi;
